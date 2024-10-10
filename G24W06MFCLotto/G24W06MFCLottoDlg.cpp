@@ -52,19 +52,36 @@ END_MESSAGE_MAP()
 
 CG24W06MFCLottoDlg::CG24W06MFCLottoDlg(CWnd* pParent /*=nullptr*/)
 	: CDialogEx(IDD_G24W06MFCLOTTO_DIALOG, pParent)
+	, Num1(_T(""))
+	, Num2(_T(""))
+	, Num3(_T(""))
+	, Num4(_T(""))
+	, Num5(_T(""))
+	, Num6(_T(""))
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+	// 매번 바뀌므로 테스트 시에는 시드를 고정하자.
+	// #ifdef __DEBUG__ ~ #ELSE ~
+	srand((unsigned)time(NULL));
 }
 
 void CG24W06MFCLottoDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Text(pDX, IDC_NUM1, Num1);
+	DDX_Text(pDX, IDC_NUM2, Num2);
+	DDX_Text(pDX, IDC_NUM3, Num3);
+	DDX_Text(pDX, IDC_NUM4, Num4);
+	DDX_Text(pDX, IDC_NUM5, Num5);
+	DDX_Text(pDX, IDC_NUM6, Num6);
 }
 
 BEGIN_MESSAGE_MAP(CG24W06MFCLottoDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDC_BTN_GENERATE, &CG24W06MFCLottoDlg::OnBtnGenerateClicked)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +170,31 @@ HCURSOR CG24W06MFCLottoDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CG24W06MFCLottoDlg::OnBtnGenerateClicked()
+{
+	// TODO: 여기에 컨트롤 알림 처리기 코드를 추가합니다.
+	//AfxMessageBox(L"버튼 클릭");
+
+	// CString의 format 멤버 함수 printf와 동일한 사용법
+	CString num;
+	num.Format(L"%d", rand() % 45 + 1); // 1 ~ 45
+	Num1 = num; // == Num1.Format();
+
+	CArray<int, int> nums;
+	int randNum;
+	int i, j;
+	for (i = 0; i < 6; i++)
+	{
+		randNum = rand() % 45 + 1;
+		for (j = 0; j < nums.GetCount(); j++)
+		{
+			if (randNum == nums[j]) break;
+		}
+		if (j == nums.GetCount()) nums.Add(randNum);
+	}
+
+
+	UpdateData(FALSE); // TRUE: 화면 내용을 변수로 가져옴, FALSE: 변수 내용을 화면 내용으로 가져옴, 기본: TRUE
+}
