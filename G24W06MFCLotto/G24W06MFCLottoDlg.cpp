@@ -170,7 +170,17 @@ HCURSOR CG24W06MFCLottoDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
-
+static void AddWithInsertionSort(CArray<int, int>& array, int n) {
+	for (int i = 0; i < array.GetCount(); i++) {
+		if (array[i] == n)
+			return;
+		else if (array[i] > n) {
+			array.InsertAt(i, n);
+			return;
+		}
+	}
+	array.Add(n);
+}
 
 void CG24W06MFCLottoDlg::OnBtnGenerateClicked()
 {
@@ -183,18 +193,18 @@ void CG24W06MFCLottoDlg::OnBtnGenerateClicked()
 	Num1 = num; // == Num1.Format();
 
 	CArray<int, int> nums;
-	int randNum;
-	int i, j;
-	for (i = 0; i < 6; i++)
-	{
-		randNum = rand() % 45 + 1;
-		for (j = 0; j < nums.GetCount(); j++)
-		{
-			if (randNum == nums[j]) break;
-		}
-		if (j == nums.GetCount()) nums.Add(randNum);
+
+	while (nums.GetCount() < 6) {
+		int n = rand() % 45 + 1;
+		AddWithInsertionSort(nums, n);
 	}
 
+	Num1.Format(L"%d", nums[0]);
+	Num2.Format(L"%d", nums[1]);
+	Num3.Format(L"%d", nums[2]);
+	Num4.Format(L"%d", nums[3]);
+	Num5.Format(L"%d", nums[4]);
+	Num6.Format(L"%d", nums[5]);
 
 	UpdateData(FALSE); // TRUE: 화면 내용을 변수로 가져옴, FALSE: 변수 내용을 화면 내용으로 가져옴, 기본: TRUE
 }
