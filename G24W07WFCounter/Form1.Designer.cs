@@ -30,6 +30,8 @@
         {
             btnAdd = new Button();
             labelCount = new Label();
+            btnSub = new Button();
+            btnReset = new Button();
             SuspendLayout();
             // 
             // btnAdd
@@ -53,11 +55,33 @@
             labelCount.Text = "0";
             labelCount.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // btnSub
+            // 
+            btnSub.Location = new Point(353, 400);
+            btnSub.Name = "btnSub";
+            btnSub.Size = new Size(94, 29);
+            btnSub.TabIndex = 2;
+            btnSub.Text = "감소";
+            btnSub.UseVisualStyleBackColor = true;
+            btnSub.Click += OnSub;
+            // 
+            // btnReset
+            // 
+            btnReset.Location = new Point(187, 400);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(94, 29);
+            btnReset.TabIndex = 3;
+            btnReset.Text = "초기화";
+            btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += OnReset;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(459, 441);
+            Controls.Add(btnReset);
+            Controls.Add(btnSub);
             Controls.Add(labelCount);
             Controls.Add(btnAdd);
             Name = "Form1";
@@ -69,5 +93,7 @@
 
         private Button btnAdd;
         private Label labelCount;
+        private Button btnSub;
+        private Button btnReset;
     }
 }
