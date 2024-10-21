@@ -12,19 +12,15 @@ namespace G24W08WFLotto
         private void OnGenerate(object sender, EventArgs e)
         {
             Random r = new Random();
-            int[] nums = new int[LottoCount];
+            HashSet<int> numSet = new HashSet<int>();
 
             int num = -1;
-            for (int i = 0; i < nums.Length; i++)
+            while (numSet.Count < LottoCount)
             {
-                do
-                {
-                    num = r.Next(1, 46);
-                } while (nums.Contains(num));
-
-                nums[i] = num;
+                numSet.Add(r.Next(1, 46));
             }
 
+            int[] nums = numSet.ToArray();
             Array.Sort(nums);
 
             Num1.Text = nums[0].ToString();
