@@ -164,5 +164,5 @@ BOOL CCG24ShapeViewerView::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt)
 	}
 
 	Invalidate();
-	return CCG24ShapeViewerView::OnMouseWheel(nFlags, zDelta, pt);
+	return CView::OnMouseWheel(nFlags, zDelta, pt);
 }

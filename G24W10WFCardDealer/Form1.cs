@@ -25,6 +25,11 @@ namespace G24W10WFCardDealer
             //    as Bitmap;                                 // Image? img = ~ as Image로도 가능
             //Card1.Image = bmp as Image; // (Image)bmp 대신 bmp as Image를 쓰는 것이 더 안전 왜?
 
+            if (value == "jack" || value == "queen" || value == "king")
+            {
+                suit += "2";
+            }
+
             Card1.Image = Properties.Resources.ResourceManager.GetObject($"{value}_of_{suit}") as Image;
         }
     }
