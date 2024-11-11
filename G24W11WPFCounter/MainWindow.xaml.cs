@@ -17,22 +17,28 @@ namespace G24W11WPFCounter
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CounterViewModel vm = new CounterViewModel();
+
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private int Count = 0;
+            this.DataContext = vm;
+        }
 
         private void OnAdd(object sender, RoutedEventArgs e)
         {
-            TxtCount.Text = $"{++Count}";
+            //TxtCount.Text = $"{++Count}";
+
+            vm.Value += 1;
         }
 
         private void OnSub(object sender, RoutedEventArgs e)
         {
-            if (Count > 0)
-                TxtCount.Text = $"{--Count}";
+            //if (Count > 0)
+            //    TxtCount.Text = $"{--Count}";
+
+            vm.Value -= 1;
         }
     }
 }

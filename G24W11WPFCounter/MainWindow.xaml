@@ -11,7 +11,8 @@
             <ImageBrush Stretch="UniformToFill" ImageSource="/diego-jimenez-A-NVHPka9Rk-unsplash.jpg" TileMode="None"/>
         </Grid.Background>
         <Button x:Name="BtnAdd" Content="증가" HorizontalAlignment="Center" Height="29" Margin="0,220,0,0" VerticalAlignment="Top" Width="56" FontSize="14" FontFamily="Pretendard" Click="OnAdd"/>
-        <TextBlock x:Name="TxtCount" HorizontalAlignment="Center" Height="67" Margin="0,138,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="164" FontFamily="Pretendard" TextAlignment="Center" FontSize="32" Background="#3F2196F3"/>
+        <!-- CounterViewModel의 Value와 연동 -->
+        <TextBlock x:Name="TxtCount" HorizontalAlignment="Center" Height="67" Margin="0,138,0,0" TextWrapping="Wrap" Text="{Binding Value}" VerticalAlignment="Top" Width="164" FontFamily="Pretendard" TextAlignment="Center" FontSize="32" Background="#3F2196F3"/>
         <Button x:Name="BtnSub" Content="감소" HorizontalAlignment="Center" Height="32" Margin="0,267,0,0" VerticalAlignment="Top" Width="56" Click="OnSub" FontFamily="Pretendard" FontSize="14"/>
 
     </Grid>
