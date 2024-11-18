@@ -7,10 +7,86 @@
         mc:Ignorable="d"
         Title="레이아웃" Height="450" Width="800">
     <Border Padding="5" Background="LightGray">
-        <Grid>
-            <!-- 숫자로 Row, Column 개수를 정하지 않은 것은 각각의 Row, Column마다 속성을 지정하기 위함-->
+        <ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" Height="100">
+                    <!--// <Rectangle Fill="DeepPink" Width="80" Height="80" Margin="10"/>-->
+                    <Image Width="80" Height="80" Margin="10"
+                           Source="https://picsum.photos/80/80?random=1"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="25">사랑은 늘 도망가</TextBlock>
+                        <TextBlock FontSize="20">임영웅</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="100">
+                    <Image Width="80" Height="80" Margin="10"
+                            Source="https://picsum.photos/80/80?random=2"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="25">애인있어요</TextBlock>
+                        <TextBlock FontSize="20">이은미</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="100">
+                    <Image Width="80" Height="80" Margin="10"
+                            Source="https://picsum.photos/80/80?random=3"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="25">소주 한 잔</TextBlock>
+                        <TextBlock FontSize="20">임창정</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="100">
+                    <Image Width="80" Height="80" Margin="10"
+                            Source="https://picsum.photos/80/80?random=4"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="25">사랑에 연습이 있었다면</TextBlock>
+                        <TextBlock FontSize="20">임재현</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="100">
+                    <Image Width="80" Height="80" Margin="10"
+                            Source="https://picsum.photos/80/80?random=5"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="25">다시 사랑한다면</TextBlock>
+                        <TextBlock FontSize="20">김필</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Height="100">
+                    <Image Width="80" Height="80" Margin="10"
+                            Source="https://picsum.photos/80/80?random=6"/>                    
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock FontSize="25">Monologue</TextBlock>
+                        <TextBlock FontSize="20">테이</TextBlock>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <!--<Canvas>
+            <Button Content="버튼 1"/>
+            <Button Content="버튼 2"/>
+            <Button Content="버튼 3" Panel.ZIndex="1"/>
+            <Button Content="버튼 4"/>
+            <Button Content="버튼 5"/>
+            <Button Content="버튼 6"/>
+            <Button Content="버튼 7"/>
+            <Button Content="버튼 8" Padding="10" Canvas.Left="50" Canvas.Top="50"/>
+
+            <Ellipse Width="100" Height="100" Fill="#faa" Canvas.Left="200" Canvas.Top="50" />
+            <Path Stroke="Green" StrokeThickness="10" Data="M 200,100 C 200,100 225,50 250,100 C 250,100 275,150 300,100" />
+        </Canvas>-->
+        <!--<WrapPanel>
+            <Button Content="버튼 1"/>
+            <Button Content="버튼 2"/>
+            <Button Content="버튼 3"/>
+            <Button Content="버튼 4"/>
+            <Button Content="버튼 5"/>
+            <Button Content="버튼 6"/>
+            <Button Content="버튼 7"/>
+            <Button Content="버튼 8"/>
+        </WrapPanel>-->
+        <!--<Grid>
+             // 숫자로 Row, Column 개수를 정하지 않은 것은 각각의 Row, Column마다 속성을 지정하기 위함
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*" /> <!-- 비례하게 표시하려면 `값*` -->
+                <RowDefinition Height="1*" />  // 비례하게 표시하려면 `값*` 
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -20,14 +96,14 @@
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Button Content="버튼 1" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-            <!--<Button Content="버튼 2" Grid.Row="0" Grid.Column="1" />-->
+            <Button Content="버튼 2" Grid.Row="0" Grid.Column="1" />
             <Button Content="버튼 3" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" />
             <Button Content="버튼 4" Grid.Row="0" Grid.Column="3" />
             <Button Content="버튼 5" Grid.Row="1" Grid.Column="0" />
             <Button Content="버튼 6" Grid.Row="1" Grid.Column="1" />
-            <!--<Button Content="버튼 7" Grid.Row="1" Grid.Column="2" />-->
+            <Button Content="버튼 7" Grid.Row="1" Grid.Column="2" />
             <Button Content="버튼 8" Grid.Row="1" Grid.Column="3" />
-        </Grid>
+        </Grid>-->
         <!--<DockPanel>
             // 지정된 것을 남는 공간에 배치한 후 남는 공간에 알아서 배치, 기본 방향은 가로로 쌓기
             <Button Content="위쪽" DockPanel.Dock="Top"/>
