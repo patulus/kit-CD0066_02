@@ -6,25 +6,46 @@
         xmlns:local="clr-namespace:G24W1103WPFLayout"
         mc:Ignorable="d"
         Title="레이아웃" Height="450" Width="800">
-    <StackPanel>
-        <!--Orientation으로 쌓기 방향 지정 가능, 기본 세로-->
-        <Button>눌러주세요</Button>
-        <Button Content="또 눌러주세요"></Button>
-        <StackPanel Orientation="Horizontal">
-            <Button Content="인사" />
-            <Label x:Name="MyLabel" Content="안녕하세요" FontWeight="Bold" />
-        </StackPanel>
-        <Button Content="눌러주세요2" />
-        <!--권장-->
-        <TextBlock Text="WPF" 
+    <Border Padding="5" Background="LightGray">
+        <DockPanel>
+            <!-- 지정된 것을 남는 공간에 배치한 후 남는 공간에 알아서 배치, 기본 방향은 가로로 쌓기 -->
+            <Button Content="위쪽" DockPanel.Dock="Top"/>
+            <Button Content="왼쪽" DockPanel.Dock="Left"/>
+            <Button Content="위쪽 3" DockPanel.Dock="Top"/>
+            <Button Content="오른" DockPanel.Dock="Right"/>
+            <Button Content="위쪽 2" DockPanel.Dock="Top"/>
+            <Button Content="오른 2" DockPanel.Dock="Right"/>
+            <Button Content="아래" DockPanel.Dock="Bottom"/>
+            <Button Content="왼쪽 2" DockPanel.Dock="Left"/>
+            <Button Content="아래 2" DockPanel.Dock="Bottom"/>
+            <UniformGrid Rows="1">
+                <Button Content="버튼 5"/>
+                <Button Content="버튼 6"/>
+                <Button Content="버튼 7"/>
+                <Button Content="버튼 8"/>
+            </UniformGrid>
+        </DockPanel>
+        <!--<StackPanel>
+            // Orientation으로 쌓기 방향 지정 가능, 기본 세로
+            <Button>눌러주세요</Button>
+            <Button Content="또 눌러주세요"></Button>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="인사" />
+                <Label x:Name="MyLabel" Content="안녕하세요" FontWeight="Bold" />
+            </StackPanel>
+            <Button Content="눌러주세요2" />
+            // 권장
+            <TextBlock Text="WPF" 
             HorizontalAlignment="Center" 
             FontSize="22" 
             Foreground="Red"/>
-        <UniformGrid Rows="1">
-            <Button Content="버튼 1"/>
-            <Button Content="버튼 2"/>
-            <Button Content="버튼 3"/>
-        </UniformGrid>
-        <!--JSON과 XML의 차이: XML은 시작과 종료 태그가 필요-->
-    </StackPanel>
+            <UniformGrid Rows="1" >
+                <Button Content="버튼 1" Padding="18" />
+                <Button Content="버튼 2" Margin="0, 0, 5, 10"/>
+                // 0 0이면 x, y / 0 0 0 0이면 l, u, r, d
+                <Button Content="버튼 3"/>
+            </UniformGrid>
+            // JSON과 XML의 차이: XML은 시작과 종료 태그가 필요
+        </StackPanel>-->
+    </Border>
 </Window>
