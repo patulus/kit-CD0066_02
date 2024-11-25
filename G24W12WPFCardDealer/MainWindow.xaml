@@ -8,6 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
         <Button x:Name="BtnDeal" DockPanel.Dock="Bottom" Content="카드 분배" Padding="8" Margin="16" Click="OnDeal" />
-        <Image x:Name="Card1" Height="310" Source="Images/10_of_clubs.png" Margin="16" />
+        <UniformGrid Rows="1" Background="#040">
+            <Image x:Name="Card1" Stretch="None" Height="310" Source="Images/black_joker.png" Margin="16" />
+            <Image x:Name="Card2" Stretch="None" Height="310" Source="Images/black_joker.png" Margin="16" />
+            <Image x:Name="Card3" Stretch="None" Height="310" Source="Images/black_joker.png" Margin="16" />
+            <Image x:Name="Card4" Stretch="None" Height="310" Source="Images/black_joker.png" Margin="16" />
+            <Image x:Name="Card5" Stretch="None" Height="310" Source="Images/black_joker.png" Margin="16" />
+
+        </UniformGrid>
     </DockPanel>
 </Window>

@@ -27,19 +27,31 @@ namespace G24W12WPFCardDealer
             string[] values = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king",];
 
             Random random = new Random();
-            int card = random.Next(suits.Length * values.Length);
 
-            string suit = suits[card / values.Length];
-            string value = values[card % values.Length];
-
-            if (Array.Exists(new string[] { "jack", "queen", "king" }, x => x == value))
+            HashSet<int> cardSet = new HashSet<int>();
+            while (cardSet.Count < 5)
             {
-                suit += "2";
+                cardSet.Add(random.Next(suits.Length * values.Length));
             }
 
-            // UriKind?
-            BitmapImage image = new BitmapImage(new Uri($"Images/{value}_of_{suit}.png", UriKind.RelativeOrAbsolute));
-            Card1.Source = image;
+            List<int> cardList = cardSet.ToList();
+            cardList.Sort();
+
+            for (int i = 0; i < cardList.Count; i++)
+            {
+                string suit = suits[cardList[i] / values.Length];
+                string value = values[cardList[i] % values.Length];
+
+                if (Array.Exists(new string[] { "jack", "queen", "king" }, x => x == value))
+                {
+                    suit += "2";
+                }
+
+                Image imageCard = (Image)FindName($"Card{i + 1}");
+                imageCard.Source = new BitmapImage(
+                    new Uri($"Images/{value}_of_{suit}.png", UriKind.Relative)
+                );
+            }
         }
     }
 }
