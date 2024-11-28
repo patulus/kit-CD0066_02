@@ -16,42 +16,20 @@ namespace G24W12WPFCardDealer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CardModel cardModel = new CardModel();
+        private CardViewModel cardViewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            cardViewModel = new CardViewModel(cardModel);
+            DataContext = cardViewModel;
         }
 
         private void OnDeal(object sender, RoutedEventArgs e)
         {
-            string[] suits = ["spades", "diamonds", "hearts", "clubs",];
-            string[] values = ["ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king",];
-
-            Random random = new Random();
-
-            HashSet<int> cardSet = new HashSet<int>();
-            while (cardSet.Count < 5)
-            {
-                cardSet.Add(random.Next(suits.Length * values.Length));
-            }
-
-            List<int> cardList = cardSet.ToList();
-            cardList.Sort();
-
-            for (int i = 0; i < cardList.Count; i++)
-            {
-                string suit = suits[cardList[i] / values.Length];
-                string value = values[cardList[i] % values.Length];
-
-                if (Array.Exists(new string[] { "jack", "queen", "king" }, x => x == value))
-                {
-                    suit += "2";
-                }
-
-                Image imageCard = (Image)FindName($"Card{i + 1}");
-                imageCard.Source = new BitmapImage(
-                    new Uri($"Images/{value}_of_{suit}.png", UriKind.Relative)
-                );
-            }
+            cardViewModel.DealCards();
         }
     }
 }
