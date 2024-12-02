@@ -27,6 +27,7 @@ class Card
 class CardModel
 {
     public static readonly int NUMBER_OF_CARDS = 5;
+    public static readonly int NUMBER_OF_HANDRAKING = 10;
 
     private List<Card> _cards = new List<Card>();
 

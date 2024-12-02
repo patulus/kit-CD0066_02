@@ -31,5 +31,13 @@ namespace G24W12WPFCardDealer
         {
             cardViewModel.DealCards();
         }
+
+        private void OnSimulation(object sender, RoutedEventArgs e)
+        {
+            for (int i = 0; i < cardViewModel.Iter; ++i)
+            {
+                cardViewModel.DealCards();
+            }
+        }
     }
 }

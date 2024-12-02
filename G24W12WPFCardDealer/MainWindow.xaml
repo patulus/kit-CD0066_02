@@ -5,10 +5,81 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G24W12WPFCardDealer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="MainWindow" Height="600" Width="1000">
     <DockPanel>
-        <Button x:Name="BtnDeal" DockPanel.Dock="Bottom" Content="카드 분배" Padding="8" Margin="8" Click="OnDeal" />
-        <Label Content="{Binding CardRanking}" DockPanel.Dock="Bottom" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="{Binding CardRanking}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Button x:Name="BtnDeal" Grid.Row="1" Grid.Column="0" Content="카드 분배" Padding="8" Margin="8" Click="OnDeal" />
+            <Button x:Name="BtnSimulation" Grid.Row="1" Grid.Column="1" Content="카드 분배 시뮬레이션" Padding="8" Margin="8" Click="OnSimulation" />
+        </Grid>
+
+        <Grid DockPanel.Dock="Right">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Label Content="시뮬레이션 수: " Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <TextBox x:Name="NumberOfSimulation" Grid.Row="0" Grid.Column="1" Text="{Binding Iter}" />
+
+            <Label Content="High Card" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[0]}" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="One Pair" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[1]}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Two Pair" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[2]}" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Three of a Kind" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[3]}" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Straight" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[4]}" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Flush" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[5]}" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Full House" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[6]}" Grid.Row="8" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Four of a Kind" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[7]}" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Straight Flush" Grid.Row="9" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[8]}" Grid.Row="10" Grid.Column="0" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            
+            <Label Content="Royal Straight" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[9]}" Grid.Row="10" Grid.Column="1" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+
+            <Label Content="반복 횟수" Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+            <Label Content="{Binding Statistics[10]}" Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" />
+        </Grid>
+
         <Border Padding="16" Background="#040">
             <UniformGrid Rows="1" Background="#040">
                 <Image x:Name="Card1" Stretch="None" Source="{Binding CardResources[0]}" />
