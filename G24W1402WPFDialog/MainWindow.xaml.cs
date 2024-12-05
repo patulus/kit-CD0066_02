@@ -24,7 +24,18 @@ namespace G24W1402WPFDialog
         private void OnAdd(object sender, RoutedEventArgs e)
         {
             GundamDlg dialog = new GundamDlg();
-            dialog.ShowDialog();
+            if (dialog.ShowDialog() != true)
+                return;
+
+            Result.Text = $"{dialog.MSParty}의 {dialog.MSModel} {dialog.MSName}{(HasJongsung(dialog.MSName) ? "이" : "가")} 추가되었습니다.\n" + Result;
+        }
+
+        private bool HasJongsung(string str)
+        {
+            if (str.Length < 1)
+                return true;
+            char last = str[str.Length - 1];
+            return (last - 44032) % 28 != 0;
         }
     }
 }
