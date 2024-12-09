@@ -8,4 +8,18 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Images\건담.jpg" />
+    <None Remove="Images\건캐논.jpg" />
+    <None Remove="Images\건탱크.jpg" />
+    <None Remove="Images\자쿠II.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\건담.jpg" />
+    <Resource Include="Images\건캐논.jpg" />
+    <Resource Include="Images\건탱크.jpg" />
+    <Resource Include="Images\자쿠II.jpg" />
+  </ItemGroup>
+
 </Project>

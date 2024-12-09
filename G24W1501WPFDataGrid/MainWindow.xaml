@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:G24W1501WPFDataGrid"
         mc:Ignorable="d"
-        Title="건담 정보" Height="400" Width="400">
+        Title="건담 정보" Height="400" Width="500">
     <Border Padding="10">
         <DockPanel>
+            <Image x:Name="GundamImage" Width="300" Margin="10" Source="{Binding GundamImage}" DockPanel.Dock="Right" />
             <Button Content="추가" DockPanel.Dock="Bottom" Click="OnAdd" />
-            <DataGrid x:Name="GundamGrid" />
+            <!--<DataGrid x:Name="GundamGrid" SelectionChanged="OnSelect" />-->
+            <DataGrid x:Name="GundamGrid" SelectedItem="{Binding GundamSelected}" />
         </DockPanel>
     </Border>
 </Window>

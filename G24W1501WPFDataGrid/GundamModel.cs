@@ -8,4 +8,5 @@ public class GundamModel
     public string Name { get; }
     public string Model { get; }
     public string Party { get; }
+    // public string ImageUri { get; } // 텀 프로젝트 시 추가할 것
 }
